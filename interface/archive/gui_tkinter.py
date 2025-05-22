@@ -16,7 +16,7 @@ from predict_module.lstm_low_horisont import (
 
 LOOKBACK = 30
 HORIZON = 7
-MODEL_PATH = "../predict_module/saved_model/epoch7.pt"
+MODEL_PATH = "../../predict_module/saved_model/epoch7.pt"
 NUM_CITIES = 393  # TODO
 
 engine = create_engine('postgresql://postgres:1@localhost:5433/weather_db')

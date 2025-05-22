@@ -4,7 +4,7 @@ import plotly.express as px
 from sqlalchemy import create_engine
 from datetime import timedelta
 
-from predict_module.lstm_low_horisont import forecast_and_true, load_saved_model
+from predict_module.lstm_low_horisont import load_saved_model, forecast_and_true
 
 LOOKBACK = 30
 HORIZON = 7

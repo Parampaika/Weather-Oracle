@@ -243,5 +243,5 @@ def main(countries: list[str], cities_file: str, top_n: int):
 
 if __name__ == '__main__':
     countries_to_fetch = ['Russia', 'Germany', 'Brazil', 'Canada']
-    cities_csv_path = '../data/archive/worldcities.csv'
+    cities_csv_path = '../../data/archive/worldcities.csv'
     main(countries_to_fetch, cities_csv_path, 50)
