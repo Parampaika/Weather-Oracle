@@ -4,11 +4,11 @@ import plotly.express as px
 from sqlalchemy import create_engine
 from datetime import timedelta
 
-from predictor.lstm_low_horisont import forecast_and_true, load_saved_model
+from predict_module.lstm_low_horisont import forecast_and_true, load_saved_model
 
 LOOKBACK = 30
 HORIZON = 7
-MODEL_PATH = "../predictor/saved_model/epoch7.pt"
+MODEL_PATH = "../predict_module/saved_model/epoch7.pt"
 DB_URI = 'postgresql://postgres:1@localhost:5433/weather_db'
 NUM_CITIES = 393
 

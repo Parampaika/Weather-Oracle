@@ -9,14 +9,14 @@ import matplotlib.dates as mdates
 from sqlalchemy import create_engine
 from tkintermapview import TkinterMapView
 
-from src.predictor.lstm_low_horisont import (
+from predict_module.lstm_low_horisont import (
     forecast_and_true,
     load_saved_model
 )
 
 LOOKBACK = 30
 HORIZON = 7
-MODEL_PATH = "../predictor/saved_model/epoch7.pt"
+MODEL_PATH = "../predict_module/saved_model/epoch7.pt"
 NUM_CITIES = 393  # TODO
 
 engine = create_engine('postgresql://postgres:1@localhost:5433/weather_db')

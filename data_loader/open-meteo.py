@@ -26,7 +26,7 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, relationship
 
-from src.get_weather.get_city_list import get_cities_coordinates
+from data_loader.get_city_list import get_cities_coordinates
 
 # --------------------------------------------------
 # Настройка логирования
@@ -243,5 +243,5 @@ def main(countries: list[str], cities_file: str, top_n: int):
 
 if __name__ == '__main__':
     countries_to_fetch = ['Russia', 'Germany', 'Brazil', 'Canada']
-    cities_csv_path = '../../data/archive/worldcities.csv'
+    cities_csv_path = '../data/archive/worldcities.csv'
     main(countries_to_fetch, cities_csv_path, 50)

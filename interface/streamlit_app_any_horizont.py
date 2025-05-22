@@ -2,7 +2,7 @@ import logging
 
 import pandas as pd
 import streamlit as st
-from predictor.yearly_boosting import split_train_test_years, create_sequences, train_xgb, \
+from predict_module.yearly_boosting import split_train_test_years, create_sequences, train_xgb, \
     test_model_for_year, plot_forecast
 from sqlalchemy import create_engine
 
