@@ -4,6 +4,8 @@ import sys
 
 import pandas as pd
 import streamlit as st
+from dotenv import load_dotenv
+
 from predict_module.yearly_boosting import create_sequences, train_xgb, \
     test_model_for_year, plot_forecast, split_train_test_years
 from sqlalchemy import create_engine
@@ -11,8 +13,10 @@ from sqlalchemy import create_engine
 sys.path.insert(0, r"C:\Users\danii\Documents\Study\Mag_2\БД\open-meteo")
 
 # === Функции работы с БД ===
-DB_URI = 'postgresql://postgres:1@localhost:5433/weather_db'
 
+load_dotenv()
+
+DB_URI = os.getenv("DB_URL")
 
 @st.cache_data
 def get_city_name(city_id):

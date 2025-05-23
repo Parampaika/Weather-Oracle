@@ -1,6 +1,9 @@
+import os
+
 import streamlit as st
 import pandas as pd
 import numpy as np
+from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from xgboost import XGBRegressor
 from sklearn.multioutput import MultiOutputRegressor
@@ -14,9 +17,11 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 
+load_dotenv()
+DB_URL = os.getenv("DB_URL")
 
 def load_city_yearly(city_id):
-    engine = create_engine('postgresql://postgres:1@localhost:5433/weather_db')
+    engine = create_engine(DB_URL)
     df = pd.read_sql(
         f"SELECT city_id, date, tavg FROM weather WHERE city_id={city_id}",
         engine

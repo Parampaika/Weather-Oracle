@@ -3,6 +3,7 @@ import time
 import pandas as pd
 import torch
 import torch.nn as nn
+from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from torch.utils.data import Dataset, DataLoader
 import numpy as np
@@ -22,10 +23,13 @@ LR = 1e-3
 LOG_INTERVAL = 10000
 MODEL_DIR = 'saved_model'
 
+load_dotenv()
+DB_URL = os.getenv("DB_URL")
 
 def load_and_split_data(train_ratio=0.7, test_ratio=0.2):
     logging.info("Загрузка данных из БД...")
-    engine = create_engine('postgresql://postgres:1@localhost:5433/weather_db')
+
+    engine = create_engine(DB_URL)
     df = pd.read_sql("SELECT city_id, date, tavg FROM weather", engine)
 
     df = df.dropna(subset=['tavg'])

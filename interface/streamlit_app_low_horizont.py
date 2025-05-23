@@ -1,15 +1,21 @@
+import os
+
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from datetime import timedelta
 
 from predict_module.lstm_low_horisont import load_saved_model, forecast_and_true
 
+
+load_dotenv()
+
 LOOKBACK = 30
 HORIZON = 7
 MODEL_PATH = "../predict_module/saved_model/epoch7.pt"
-DB_URI = 'postgresql://postgres:1@localhost:5433/weather_db'
+DB_URI = os.getenv("DB_URL")
 NUM_CITIES = 393
 
 @st.cache_resource
